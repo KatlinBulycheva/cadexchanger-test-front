@@ -6,16 +6,16 @@ import { getQueryKeyPoints } from "./utils/constants";
 import { useQuery } from "@tanstack/react-query";
 import { pointsConeApi } from "./api/pointsConeApi";
 
-function App() {
+export function App() {
   const clientData = {
-    heightCone: 20,
-    raduisCone: 10,
-    numberSegmentsCone: 15,
+    heightCone: 2,
+    raduisCone: 1,
+    numberSegmentsCone: 10,
   };
 
   const { data, isLoading, isError, error, refetch } = useQuery({
     queryKey: getQueryKeyPoints(),
-    queryFn: () => pointsConeApi.getAllBoardgames(clientData),
+    queryFn: () => pointsConeApi.getAllPoints(clientData),
   });
 
   console.log(data, isLoading, isError, error, refetch);
@@ -24,13 +24,11 @@ function App() {
     <main>
       <section className={styles.canvas}>
         <Canvas>
-          <ambientLight intensity={0.6} />
-          <directionalLight position={[1, 3, 0]} intensity={0.7} />
-          <Cone />
+          <ambientLight intensity={0.4} />
+          <directionalLight position={[-3, -3, 3]} intensity={0.9} />
+          <Cone points={data}/>
         </Canvas>
       </section>
     </main>
   );
 }
-
-export default App;

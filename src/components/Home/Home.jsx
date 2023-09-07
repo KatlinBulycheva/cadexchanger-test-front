@@ -2,34 +2,42 @@
 import { Canvas } from "@react-three/fiber";
 import { Cone } from "../Cone/Cone.jsx";
 import styles from "./Home.module.css";
-import { getQueryKeyPoints } from "../../utils/constants.js";
+import { HEIGHT, RADIUS, SEGMENTS, getQueryKeyPoints } from "../../utils/constants.js";
 import { useQuery } from "@tanstack/react-query";
 import { pointsConeApi } from "../../api/pointsConeApi.js";
 import { Field, Form, Formik } from "formik";
+import { useDispatch, useSelector } from "react-redux";
+import { coneSelector, setValues } from "../../redux/slices/coneSlice.js";
+import { initState } from "../../redux/initState.js";
 
 export const Home = () => {
-  const clientData = {
-    heightCone: 1,
-    raduisCone: 2,
-    numberSegmentsCone: 5,
-  };
+    const dispatch = useDispatch();
+
+    const clientData = useSelector(coneSelector);
+    console.log(clientData);
+
+//   const clientData = {
+//     heightCone: 1,
+//     raduisCone: 2,
+//     numberSegmentsCone: 5,
+//   };
 
   const { data, isLoading, isError, error, refetch } = useQuery({
-    queryKey: getQueryKeyPoints(),
+    queryKey: getQueryKeyPoints(clientData),
     queryFn: () => pointsConeApi.getAllPoints(clientData),
   });
 
   console.log(data, isLoading, isError, error, refetch);
 
   const submitHandler = (values) => {
-    console.log(values);
+    dispatch(setValues(values))
   }
 
   return (
     <main className={styles.main}>
       <section className={styles.wrappedForm}>
         <Formik 
-            initialValues={{ height: 1, radius: 2, segments: 5 }}
+            initialValues={initState.cone}
             onSubmit={submitHandler}
         >
           {({ values }) => {
@@ -37,26 +45,26 @@ export const Home = () => {
               <Form className={styles.form}>
 
                 <div className={styles.wrappedField}>
-                  <label htmlFor="height">Height of cone</label>
+                  <label htmlFor={HEIGHT}>Height of cone</label>
                   <div className={styles.wrappedRange}>
-                    <Field type="range" name="height" min="1" max="3"/>
-                    <span>{values.height}</span>
+                    <Field type="range" name={HEIGHT} min="1"/>
+                    <span>{values[HEIGHT]}</span>
                   </div>
                 </div>
 
                 <div className={styles.wrappedField}>
-                    <label htmlFor="radius">Radius base</label>
+                    <label htmlFor={RADIUS}>Radius base</label>
                     <div className={styles.wrappedRange}>
-                        <Field type="range" name="radius" min="3" max="20"/>
-                        <span>{values.radius}</span>
+                        <Field type="range" name={RADIUS} min="1"/>
+                        <span>{values[RADIUS]}</span>
                     </div>
                 </div>
 
                 <div className={styles.wrappedField}>
-                    <label htmlFor="radius">Number of segments</label>
+                    <label htmlFor={SEGMENTS}>Number of segments</label>
                     <div className={styles.wrappedRange}>
-                        <Field type="range" name="segments" min="3" max="20"/>
-                        <span>{values.segments}</span>
+                        <Field type="range" name={SEGMENTS} min="3"/>
+                        <span>{values[SEGMENTS]}</span>
                     </div>
                 </div>
 

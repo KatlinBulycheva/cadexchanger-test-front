@@ -39,7 +39,7 @@
 
 .wrappedCanvas {
     width: 60%;
-    height: 60%;
+    height: 100%;
     padding: 5%;
     box-sizing: border-box;
 }

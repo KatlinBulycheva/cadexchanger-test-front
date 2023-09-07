@@ -1,0 +1,45 @@
+.main {
+    height: calc(100% - var(--height-header-footer));
+    padding: 0 var(--padding-x-global);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wrappedForm {
+    padding: 0 var(--padding-x-global) 0 10%;
+    flex-grow: 1;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.wrappedField {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.wrappedRange {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.wrappedRange span {
+    font-size: 20px;
+    width: max-content;
+}
+
+
+.wrappedCanvas {
+    width: 60%;
+    height: 60%;
+    padding: 5%;
+    box-sizing: border-box;
+}

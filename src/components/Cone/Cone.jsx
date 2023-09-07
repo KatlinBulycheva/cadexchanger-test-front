@@ -9,11 +9,11 @@ export const Cone = ({ points }) => {
 
   useEffect(() => {
     convexRef.current.geometry = new ConvexGeometry(
-      points.map((point) => {
+      points ? points.map((point) => {
         return new Vector3(Number(point.x), Number(point.y), Number(point.z))
-      })
+      }) : []
     );
-  }, [])
+  }, [points])
 
   return (
     <mesh position={[2, 2, 0]} ref={convexRef}>

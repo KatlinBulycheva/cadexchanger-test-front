@@ -2,8 +2,9 @@
 import { Cone } from "../Cone/Cone.jsx";
 import { Canvas } from "@react-three/fiber";
 import { Controls } from "../Controls/Controls";
+import { withQuery } from "../HOCs/withQuery.jsx";
 
-export const CanvasComponent = ({ data }) => {
+export const CanvasComponent = withQuery(({ data }) => {
   return (
     <Canvas>
       <ambientLight intensity={0.5} />
@@ -12,4 +13,4 @@ export const CanvasComponent = ({ data }) => {
       <Controls />
     </Canvas>
   );
-};
+})

@@ -10,7 +10,7 @@ import { FormComponent } from "../Form/FormComponent";
 export const Home = () => {
   const clientData = useSelector(coneSelector);
 
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, isError, error, refetch } = useQuery({
     queryKey: getQueryKeyPoints(clientData),
     queryFn: () => pointsConeApi.getAllPoints(clientData),
   });
@@ -18,11 +18,17 @@ export const Home = () => {
   return (
     <main className={styles.main}>
       <section className={styles.wrappedForm}>
-        <FormComponent isLoading={isLoading}/>
+        <FormComponent isLoading={isLoading} />
       </section>
 
       <section className={styles.wrappedCanvas}>
-        <CanvasComponent data={data}/>
+        <CanvasComponent
+          data={data}
+          isLoading={isLoading}
+          isError={isError}
+          error={error}
+          refetch={refetch}
+        />
       </section>
     </main>
   );

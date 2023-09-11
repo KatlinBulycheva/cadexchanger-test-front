@@ -20,6 +20,6 @@ class PointsConeApi {
   }
   
   export const pointsConeApi = new PointsConeApi({
-    baseURL: " https://dev-api.kekmech.com/backend-cone",
+    baseURL: "https://dev-api.kekmech.com/backend-cone",
   });
   

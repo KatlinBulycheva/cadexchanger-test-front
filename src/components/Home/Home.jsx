@@ -3,7 +3,7 @@ import { getQueryKeyPoints } from "../../utils/constants.js";
 import { useQuery } from "@tanstack/react-query";
 import { pointsConeApi } from "../../api/pointsConeApi.js";
 import { useSelector } from "react-redux";
-import { coneSelector } from "../../redux/slices/coneSlice.js";
+import { coneSelector } from "../../redux/slices/coneSlice.ts";
 import { CanvasComponent } from "../Canvas/CanvasComponet.jsx";
 import { FormComponent } from "../Form/FormComponent";
 

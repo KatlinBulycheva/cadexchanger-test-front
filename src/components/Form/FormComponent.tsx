@@ -1,14 +1,20 @@
 import { Field, Form, Formik } from "formik";
 import styles from "./FormComponent.module.css";
 import { initState } from "../../redux/initState";
-import { useDispatch } from "react-redux";
 import { setValues } from "../../redux/slices/coneSlice";
 import { HEIGHT, RADIUS, SEGMENTS } from "../../utils/constants";
+import {FC} from "react";
+import { IConeType } from "../../models/ConeTypes";
+import { useAppDispatch } from "../../hooks/useAppDispatch";
 
-export const FormComponent = ({isLoading}) => {
-    const dispatch = useDispatch()
+type FormComponentProps = {
+  isLoading: boolean,
+}
 
-    const submitHandler = (values) => {
+export const FormComponent: FC<FormComponentProps> = ({isLoading}) => {
+    const dispatch = useAppDispatch();
+
+    const submitHandler = (values: IConeType) => {
         dispatch(setValues(values));
       };
 

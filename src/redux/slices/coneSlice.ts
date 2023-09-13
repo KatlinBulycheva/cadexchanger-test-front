@@ -1,11 +1,13 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { initState } from "../initState";
+import { IConeType } from "../../models/ConeTypes";
+import { RootState } from "../../models/StoreTypes";
 
 const coneSlice = createSlice({
     name: 'searchValue',
     initialState: initState.cone,
     reducers: {
-        setValues(_, action) {
+        setValues(_, action: PayloadAction<IConeType>) {
             return action.payload
         }
     }
@@ -13,4 +15,4 @@ const coneSlice = createSlice({
 
 export const {setValues} = coneSlice.actions;
 export const coneReduser = coneSlice.reducer;
-export const coneSelector = (state) => state.cone;
+export const coneSelector = (state: RootState) => state.cone;

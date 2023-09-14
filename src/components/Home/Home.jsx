@@ -1,5 +1,5 @@
 import styles from "./Home.module.css";
-import { getQueryKeyPoints } from "../../utils/constants.js";
+import { getQueryKeyPoints } from "../../utils/constants.ts";
 import { useQuery } from "@tanstack/react-query";
 import { pointsConeApi } from "../../api/pointsConeApi.js";
 import { useSelector } from "react-redux";

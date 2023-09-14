@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unknown-property */
-import { Cone } from "../Cone/Cone.jsx";
+import { Cone } from "../Cone/Cone.tsx";
 import { Canvas } from "@react-three/fiber";
-import { Controls } from "../Controls/Controls";
+import { Controls } from "../Controls/Controls.tsx";
 import { withQuery } from "../HOCs/withQuery.jsx";
 
 export const CanvasComponent = withQuery(({ data }) => {

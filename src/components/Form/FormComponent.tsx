@@ -26,7 +26,7 @@ export const FormComponent: FC<FormComponentProps> = ({isLoading}) => {
               <div className={styles.wrappedField}>
                 <label htmlFor={HEIGHT}>Height of cone</label>
                 <div className={styles.wrappedRange}>
-                  <Field type="range" name={HEIGHT} min="1" max="10"/>
+                  <Field type="range" name={HEIGHT} id={HEIGHT} min="1" max="10"/>
                   <span>{values[HEIGHT]}</span>
                 </div>
               </div>
@@ -34,7 +34,7 @@ export const FormComponent: FC<FormComponentProps> = ({isLoading}) => {
               <div className={styles.wrappedField}>
                 <label htmlFor={RADIUS}>Radius base</label>
                 <div className={styles.wrappedRange}>
-                  <Field type="range" name={RADIUS} min="1" max="10"/>
+                  <Field type="range" name={RADIUS} id={RADIUS} min="1" max="10"/>
                   <span>{values[RADIUS]}</span>
                 </div>
               </div>
@@ -42,7 +42,7 @@ export const FormComponent: FC<FormComponentProps> = ({isLoading}) => {
               <div className={styles.wrappedField}>
                 <label htmlFor={SEGMENTS}>Number of segments</label>
                 <div className={styles.wrappedRange}>
-                  <Field type="range" name={SEGMENTS} min="3" max="20"/>
+                  <Field type="range" name={SEGMENTS} id={SEGMENTS} min="3" max="20"/>
                   <span>{values[SEGMENTS]}</span>
                 </div>
               </div>

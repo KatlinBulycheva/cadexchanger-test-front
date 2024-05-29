@@ -1,7 +1,5 @@
 ## [CONE CREATOR](https://katlinbulycheva.github.io/cadexchanger-test-front/)
 
-**CONE CREATOR** 
-
 ## MVP functionality
 1. Create a single page application (SPA), both with front-end and back-end.
 2. The user should enter parameters (cone height, radius and number of segments on a circle)

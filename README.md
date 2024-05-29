@@ -1,6 +1,6 @@
 ## [CONE CREATOR](https://katlinbulycheva.github.io/cadexchanger-test-front/)
 
-**CONE CREATOR** - test task from CAD Exchanger company, which consists of developing the client and server parts of the site to create a 3D cone
+**CONE CREATOR** 
 
 ## MVP functionality
 1. Create a single page application (SPA), both with front-end and back-end.
